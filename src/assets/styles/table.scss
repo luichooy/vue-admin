@@ -1,0 +1,55 @@
+/*
+  @Project Name: vue-admin
+  @Author: luichooy
+  @Date: 2017-11-22 10:52
+  @Email: luichooy@163.com
+  @Idea: WebStorm
+*/
+@import "./variable";
+
+.table-border {
+  border: 1px solid $borderColor;
+
+  th, td {
+    border-right: 1px solid $borderColor;
+    //border-bottom: 1px solid $borderColor;
+  }
+}
+
+.is-left {
+  text-align: left;
+}
+
+.is-center {
+  text-align: center;
+}
+
+.is-right {
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  vertical-align: middle;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  font-size: 14px;
+
+  thead {
+    background-color: $tableHeaderBgColor;
+  }
+
+  tr {
+    border-bottom: 1px solid $borderColor;
+  }
+
+  th{
+    padding: 8px 0;
+  }
+
+  td {
+    padding: 12px 0;
+  }
+}
+
+

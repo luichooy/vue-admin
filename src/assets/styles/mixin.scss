@@ -1,0 +1,17 @@
+/*
+  @Project Name: vue-admin
+  @Author: luichooy
+  @Date: 2017-11-20 14:19
+  @Email: luichooy@163.com
+  @Idea: WebStorm
+*/
+
+@mixin bg-image($url) {
+  background-image: url($url + "@2x.png");
+
+  @media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+}
+
+
