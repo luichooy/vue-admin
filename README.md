@@ -1,17 +1,11 @@
 # 简介：
 
----
-
 
 ## 技术栈：
-
----
 
 ​vue@2.5.2+vue-router@3.0.1+vuex@3.0.0+axios@0.17.0+element-ui@2.0.0+vue-echarts@2.5.1
 
 # Build Setup:
-
----
 
 
 ```plain
@@ -42,8 +36,6 @@ npm test
 ```
 
 # 目录结构：
-
----
 
 
 ```
@@ -107,8 +99,6 @@ npm test
 ```
 
 # 功能实现：
-
----
 
 
 * [x] 登陆，登出
