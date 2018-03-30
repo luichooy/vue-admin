@@ -20,7 +20,6 @@
               element-loading-text="加载数据中"
               :data='tableData'
               border
-              height=""
               :row-class-name="addRowClass">
               <el-table-column label="用户名" prop="username" align="center" width="80"></el-table-column>
               <el-table-column label="头像" align="center" width="80">
