@@ -126,6 +126,74 @@ export const appRouter = [
     ]
   },
   {
+    path: '/system',
+    name: 'system',
+    title: '系统管理',
+    meta: {
+      requireAuth: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        title: '系统管理',
+        component: () => import('src/pages/system/index/index')
+      }
+    ]
+  },
+  {
+    path: '/user',
+    name: 'user',
+    title: '用户管理',
+    meta: {
+      requireAuth: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        title: '用户管理',
+        component: () => import('src/pages/user/index')
+      }
+    ]
+  },
+  {
+    path: '/access',
+    name: 'access',
+    title: '权限管理',
+    meta: {
+      requireAuth: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        title: '权限管理',
+        component: () => import('src/pages/access/index')
+      }
+    ]
+  },
+  {
+    path: '/log',
+    name: 'log',
+    title: '日志管理',
+    meta: {
+      requireAuth: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        title: '操作日志',
+        component: () => import('src/pages/log/index')
+      }
+    ]
+  },
+  {
     path: '/test',
     name: 'test',
     title: '测试',

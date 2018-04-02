@@ -9,7 +9,7 @@
 <template>
   <div class="test">
     <el-row>
-      <el-col :span="12" style="padding-right: 8px;">
+      <el-col :span="12" style="padding-right: 4px;">
         <el-card>
           <div slot="header">测试数据mock</div>
           <div class="body">
@@ -20,7 +20,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="12" style="padding-left: 8px;">
+      <el-col :span="12" style="padding-left: 4px;">
         <el-card>
           <div slot="header">评分组件</div>
           <div class="body">
@@ -32,7 +32,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="24" style="margin: 16px 0;">
+      <el-col :span="24" style="margin: 8px 0;">
         <el-card>
           <div slot="header">病人组件</div>
           <div class="body">
@@ -40,7 +40,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="24" style="magin: 16px 0;">
+      <el-col :span="24" style="margin-bottom: 8px;">
         <el-card>
           <div slot="header">tableRadio 组件</div>
           <div class="body">
@@ -48,7 +48,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="24" style="margin: 16px 0;">
+      <el-col :span="24" style="margin-bottom: 8px;">
         <el-card>
           <div slot="header">table 组件</div>
           <div class="body">
@@ -56,7 +56,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="24" style="margin: 16px 0;">
+      <el-col :span="24" style="margin-bottom: 8px;">
         <el-card style="height: 300px;">
           <div slot="header">topmenu 组件</div>
           <div class="body">
@@ -103,7 +103,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="12" style="padding-right: 2px;">
+      <el-col :span="12" style="padding-right: 4px;">
         <el-card style="height: 300px;">
           <div slot="header">validate-code 组件</div>
           <div class="body">
@@ -113,7 +113,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :span="12" style="padding-left: 2px;">
+      <el-col :span="12" style="padding-left: 4px;">
         <el-card style="height: 300px;">
           <div slot="header">validate-code 组件</div>
           <div class="body">

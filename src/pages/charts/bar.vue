@@ -10,25 +10,25 @@
   <div class="bar">
     <div class="bar-list">
       <el-row style="margin-bottom: 16px;">
-        <el-col :span="24" style="padding-bottom: 16px;">
+        <el-col :span="24" style="padding-bottom: 8px;">
           <el-card>
             <div slot="header">某周网站访客来源分析</div>
             <chart ref="A" :options="optionsA" style="width: 100%;"></chart>
           </el-card>
         </el-col>
-        <el-col :span="12" style="padding-right: 8px;">
+        <el-col :span="12" style="padding-right: 4px;">
           <el-card>
             <div slot="header">某地区1-6月份蒸发量和降水量（虚构数据）</div>
             <chart ref="B" :options="optionsB" style="width: 100%;"></chart>
           </el-card>
         </el-col>
-        <el-col :span="12" style="padding-left: 8px;">
+        <el-col :span="12" style="padding-left: 4px;">
           <el-card>
             <div slot="header">收支盈利统计图</div>
             <chart ref="C" :options="optionsC" style="width: 100%;"></chart>
           </el-card>
         </el-col>
-        <el-col :span="24" style="padding-top: 16px;">
+        <el-col :span="24" style="padding-top: 8px;">
           <el-card>
             <div slot="header">世界人口总量（数据来自网络）</div>
             <chart ref="D" :options="optionsD" style="width: 100%;"></chart>

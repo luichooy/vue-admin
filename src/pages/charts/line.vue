@@ -10,19 +10,19 @@
   <div class="line">
     <div class="line-list">
       <el-row style="margin-bottom: 16px;">
-        <el-col :span="12" style="padding-right: 8px;">
+        <el-col :span="12" style="padding-right: 4px;">
           <el-card>
             <div slot="header">某周网站访客来源趋势图</div>
             <chart ref="A" :options="optionsA" style="width: 100%;"></chart>
           </el-card>
         </el-col>
-        <el-col :span="12" style="padding-left: 8px;">
+        <el-col :span="12" style="padding-left: 4px;">
           <el-card>
             <div slot="header">未来一周天气变化</div>
             <chart ref="B" :options="optionsB" style="width: 100%;"></chart>
           </el-card>
         </el-col>
-        <el-col :span="24" style="padding-top: 16px;">
+        <el-col :span="24" style="padding-top: 8px;">
           <el-card>
             <div slot="header">未来一周天气变化</div>
             <chart ref="C" :options="optionsC" style="width: 100%;"></chart>

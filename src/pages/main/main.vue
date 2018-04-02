@@ -111,22 +111,22 @@
             ]
           },
           {
-            path: '/4',
+            path: '/system/index',
             title: '系统管理',
             icon: 'el-icon-adm-project'
           },
           {
-            path: '/5',
+            path: '/user/index',
             title: '用户管理',
             icon: 'el-icon-adm-user'
           },
           {
-            path: '/6',
+            path: '/access/index',
             title: '权限管理',
             icon: 'el-icon-adm-organization'
           },
           {
-            path: '/7',
+            path: '/log/index',
             title: '操作日志',
             icon: 'el-icon-adm-log'
           },
