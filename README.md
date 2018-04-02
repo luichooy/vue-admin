@@ -114,3 +114,18 @@ npm test
 * [x] 测试部分有自己实现的各种组件，该部分会继续补充
 * [ ] 利用express+mongodb 实现后台
 
+# 效果预览：
+
+---
+
+
+![login.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651362860-40c6bf1f-45c7-429d-8dea-f90bbdb45b22.gif "")
+
+![basic.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651400348-538008f4-4d55-45d9-933a-a72449a1bbaf.gif "")
+
+
+![charts.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651417218-cef6f977-a7a8-44e9-9902-2e1b29c142fb.gif "")
+
+![form.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651426493-b10d5605-70ff-47dd-b35b-f5959380498b.gif "")
+
+![test.gif | center | 1316x926](https://cdn.yuque.com/yuque/2018/gif/95048/1522651433603-32edb860-2099-4783-a1ca-f28ceb560000.gif "")
