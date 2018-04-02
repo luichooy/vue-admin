@@ -34,49 +34,61 @@ const formData = require('../src/data/form/form');
 
 var apiRoutes = express.Router();
 
-apiRoutes.get('/addressData',function(req,res){
+apiRoutes.get('/addressData', function (req, res) {
   res.json({
-    errno:0,
-    data:address
+    errno: 0,
+    data: address
   });
 });
 
-apiRoutes.get('/getBarData',function(req,res){
+apiRoutes.get('/getBarData', function (req, res) {
   res.json({
-    errno:0,
-    data:barData
+    errno: 0,
+    data: barData
   });
 });
 
-apiRoutes.get('/getLineData',function(req,res){
+apiRoutes.get('/getLineData', function (req, res) {
   res.json({
-    errno:0,
-    data:lineData
+    errno: 0,
+    data: lineData
   });
 });
 
-apiRoutes.get('/getPieData',function(req,res){
+apiRoutes.get('/getPieData', function (req, res) {
   res.json({
-    errno:0,
-    data:pieData
+    errno: 0,
+    data: pieData
   });
 });
 
-apiRoutes.get('/getTableData',function(req,res){
+apiRoutes.get('/getTableData', function (req, res) {
+  let query = req.query;
+  let per_page = query.per_page;
+  let cur_page = query.cur_page;
+  
+  let min = per_page * cur_page - per_page;
+  let max = per_page * cur_page;
+  
+  
+  let arr = tableData.slice(min, max);
   res.json({
-    errno:0,
-    data:tableData
+    errno: 0,
+    data: {
+      table: arr,
+      total: tableData.length
+    }
   });
 });
 
-apiRoutes.get('/getFormData',function(req,res){
+apiRoutes.get('/getFormData', function (req, res) {
   res.json({
-    errno:0,
-    data:formData
+    errno: 0,
+    data: formData
   });
 });
 
-app.use('/api',apiRoutes);
+app.use('/api', apiRoutes);
 
 const compiler = webpack(webpackConfig)
 
@@ -107,7 +119,7 @@ app.use(hotMiddleware)
 Object.keys(proxyTable).forEach(function (context) {
   let options = proxyTable[context]
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {target: options}
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })

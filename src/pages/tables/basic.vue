@@ -54,7 +54,7 @@
               style="margin-top: 16px; text-align:right;"
               layout="total, sizes, prev, pager, next, jumper"
               :page-sizes="[5, 10, 15, 20]"
-              :total="tableData.length"
+              :total="total"
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange">
             </el-pagination>
@@ -72,34 +72,43 @@
   const NEGATIVE = 1;
   export default {
     created () {
-      this.axios.get('/api/getTableData')
-      .then(data => {
-        if (data.errno === 0) {
-          this.tableData = data.data;
-          this.loading = false;
-        } else {
-          console.log(data.msg);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      this.getTableData();
     },
     data () {
       return {
         tableData: [],
-        loading: true
+        loading: true,
+        pagesize: 10,
+        currentpage: 1,
+        total: 0
       }
     },
     methods: {
+      getTableData () {
+        this.axios.get(`/api/getTableData?per_page=${this.pagesize}&cur_page=${this.currentpage}`)
+        .then(data => {
+          if (data.errno === 0) {
+            this.tableData = data.data.table;
+            this.total = data.data.total;
+            this.loading = false;
+          } else {
+            console.log(data.msg);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      },
       show (scope) {
         console.log(scope);
       },
       handleSizeChange (value) {
-        console.log(`每页 ${value} 条`);
+        this.pagesize = value;
+        this.getTableData();
       },
       handleCurrentChange (value) {
-        console.log(`当前页: ${value}`);
+        this.currentpage = value;
+        this.getTableData();
       },
       addRowClass ({row, rowIndex}) {
         if (row.rateType === NEGATIVE) {
