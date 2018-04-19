@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import { routers } from './route';
 import store from 'src/store/index';
 import { Loading } from 'element-ui';
-import Util from 'src/assets/js/util';
+import { setTitle } from 'src/assets/js/util';
 
 Vue.use(VueRouter);
 
@@ -24,7 +24,7 @@ router.beforeEach((to, form, next) => {
   });
   
   // 设置window.document.title 的名称
-  Util.title(to.meta.title);
+  setTitle(to.meta.title);
   
   // 判断该路由是否需要登陆权限
   if (to.name === '' || to.name === '/home') {
