@@ -6,7 +6,7 @@
  * @Idea: WebStorm
  */
 
-import Main from 'src/pages/main/main';
+import Layout from 'src/pages/layout/layout';
 
 // 不作为main组件子页面展示的页面单独写，如下
 export const loginRouter = {
@@ -37,7 +37,7 @@ export const otherRouter = {
   meta: {
     requireAuth: true
   },
-  component: Main,
+  component: Layout,
   children: [
     {
       path: 'home',
@@ -57,7 +57,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'basic',
@@ -86,7 +86,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'bar',
@@ -115,7 +115,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'render',
@@ -132,7 +132,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'index',
@@ -149,7 +149,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'index',
@@ -166,7 +166,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'index',
@@ -183,7 +183,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'index',
@@ -200,7 +200,7 @@ export const appRouter = [
     meta: {
       requireAuth: true
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'index',

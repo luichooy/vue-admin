@@ -1,16 +1,13 @@
-import localStorage from 'src/assets/js/localStorage';
+import { sessionStorage } from 'src/assets/js/storage';
 
 const mutations = {
-  setUser (state, User) {
-    localStorage.setItem('User', User);
-    state.User = User;
+  SET_USER (state, user) {
+    sessionStorage.setItem('user', user);
+    state.user = user;
   },
-  setToken (state, Token) {
-    localStorage.setItem('Token', Token);
-    state.Token = Token;
-  },
-  setCurrentPath (state, pathArr) {
-    state.currentPath = pathArr;
+  SET_TOKEN (state, token) {
+    sessionStorage.setItem('token', token);
+    state.token = token;
   }
 };
 

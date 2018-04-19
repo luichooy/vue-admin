@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import {routers} from './route';
+import { routers } from './route';
 import store from 'src/store/index';
-import {Loading} from 'element-ui';
+import { Loading } from 'element-ui';
 import Util from 'src/assets/js/util';
 
 Vue.use(VueRouter);
@@ -27,14 +27,15 @@ router.beforeEach((to, form, next) => {
   Util.title(to.meta.title);
   
   // 判断该路由是否需要登陆权限
-  if (to.meta.requireAuth) {
-    if (store.state.Token) { // 通过vuex state 获取当前User对象中的token
-      next();
-    } else {
+  if (to.name === '' || to.name === '/home') {
+    store.commit('SET_TOKEN', sessionStorage.getItem('token'));
+    let token = store.state.token;
+    if (!token) {
       next({
-        path: '/login',
-        query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登陆成功后跳转到该路由
+        path: '/login'
       });
+    } else {
+      next();
     }
   } else {
     next();

@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import axios from './http';
+import http from './http';
 import store from './store/index';
 import {router} from './router/index';
 import Root from './Root.vue';
@@ -42,11 +42,10 @@ Vue.config.productionTip = false;
 /* eslint-disable no-new */
 
 // 将axios挂载到prototype上，在组件中可以直接使用this.axios访问
-Vue.prototype.axios = axios;
+Vue.prototype.axios = http;
 
 new Vue({
   el: '#app',
-  axios,
   store,
   router,
   template: '<Root/>',

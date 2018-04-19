@@ -228,7 +228,7 @@
       },
       getAddressData () {
         let that = this;
-        this.axios.get('/api/addressData')
+        this.axios.get('addressData')
         .then(function (res) {
           const response = res.data;
           if (response.errno === 0) {

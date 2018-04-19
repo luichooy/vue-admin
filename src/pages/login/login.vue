@@ -79,13 +79,13 @@
         },
         rules: {
           username: [
-            {required: true, message: '账号不能为空', trigger: 'blur'}
+            { required: true, message: '账号不能为空', trigger: 'blur' }
           ],
           password: [
-            {required: true, message: '密码不能为空', trigger: 'blur'}
+            { required: true, message: '密码不能为空', trigger: 'blur' }
           ],
           yanzhengma: [
-            {validator: checkYanzhengma, trigger: 'blur'}
+            { validator: checkYanzhengma, trigger: 'blur' }
           ]
         }
       };
@@ -125,14 +125,9 @@
             name: '超级管理员'
           }
         };
-        let Token = {
-          token: 'a94756da-2962-40ae-bdea-787fd02c9d92',
-          status: 'alive',
-          login_location: '192.168.2.16',
-          login_ip: '192.168.2.16'
-        };
-        this.$store.commit('setUser', User);
-        this.$store.commit('setToken', Token);
+        let token = 'a94756da-2962-40ae-bdea-787fd02c9d92';
+        this.$store.commit('SET_USER', User);
+        this.$store.commit('SET_TOKEN', token);
 
         const redirect = this.$route.query.redirect;
         // console.log(this.$route);

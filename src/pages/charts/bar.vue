@@ -49,12 +49,11 @@
       chartB.showLoading();
       chartC.showLoading();
       chartD.showLoading();
-      this.axios.get('/api/getBarData')
+      this.axios.get('getBarData')
       .then(data => {
         console.log(data);
         if (data.errno === 0) {
           const options = data.data;
-          console.log(data);
           chartA.mergeOptions({
             series: options.optionsA.series
           });

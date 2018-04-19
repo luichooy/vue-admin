@@ -1,5 +1,6 @@
 <template>
-  <div class="main">
+  <div class="layout">
+    <Auth></Auth>
     <div class="siderbar-wrapper" :style="{width: this.isCollapsed?'64px':'200px'}">
       <div class="logo-wrapper">
         logo
@@ -37,7 +38,7 @@
       </div>
       <div class="title float-left">VUE-ADMIN 后台管理系统</div>
       <ul class="menu-list float-right">
-        <li class="menu-item" style="padding: 0;">
+        <li v-if="user" class="menu-item" style="padding: 0;">
           <el-dropdown
             :show-timeout="10"
             :hide-timeout="10"
@@ -45,13 +46,12 @@
             style="padding: 0 15px;">
             <div class="dropdown-content el-dropdown-link">
               <i class="icon el-icon-adm-usersetup"></i>
-              <span class="text">{{User.name || User.username}}</span>
+              <span class="text">{{user.name || user.username}}</span>
             </div>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="a">{{User.username}}</el-dropdown-item>
-              <el-dropdown-item command="b">{{User.name}}</el-dropdown-item>
-              <el-dropdown-item command="b">{{User.type.name}}</el-dropdown-item>
-              <el-dropdown-item command="exit" divided>退出登录</el-dropdown-item>
+              <el-dropdown-item command="a">{{user.username}}</el-dropdown-item>
+              <el-dropdown-item command="b">{{user.name}}</el-dropdown-item>
+              <el-dropdown-item command="b">{{user.type.name}}</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </li>
@@ -71,7 +71,7 @@
   </div>
 </template>
 <script>
-  import localStorage from 'src/assets/js/localStorage';
+  import Auth from 'src/components/auth/auth';
 
   export default {
     data () {
@@ -87,9 +87,9 @@
             title: '表格管理',
             icon: 'el-icon-adm-linechart',
             children: [
-              {path: '/tables/basic', title: '基本表格'},
-              {path: '/tables/sort', title: '排序表格'},
-              {path: '/tables/filter', title: '筛选表格'}
+              { path: '/tables/basic', title: '基本表格' },
+              { path: '/tables/sort', title: '排序表格' },
+              { path: '/tables/filter', title: '筛选表格' }
             ]
           },
           {
@@ -97,9 +97,9 @@
             title: '图表管理',
             icon: 'el-icon-adm-statistics',
             children: [
-              {path: '/charts/bar', title: '柱状图'},
-              {path: '/charts/line', title: '折线图'},
-              {path: '/charts/pie', title: '饼图'}
+              { path: '/charts/bar', title: '柱状图' },
+              { path: '/charts/line', title: '折线图' },
+              { path: '/charts/pie', title: '饼图' }
             ]
           },
           {
@@ -107,7 +107,7 @@
             title: '表单管理',
             icon: 'el-icon-adm-form',
             children: [
-              {path: '/form/render', title: '渲染表单'}
+              { path: '/form/render', title: '渲染表单' }
             ]
           },
           {
@@ -141,12 +141,8 @@
       }
     },
     computed: {
-      User () {
-        if (!this.$store.state.User) {
-          let User = localStorage.getItem('User');
-          this.$store.commit('setUser', User);
-        }
-        return this.$store.state.User;
+      user () {
+        return this.$store.state.user;
       }
     },
     methods: {
@@ -163,16 +159,18 @@
           type: 'warning'
         })
         .then(() => {
-          this.$store.commit('setToken', null);
-          this.$store.commit('setUser', null);
-          this.$router.push({path: '/login'});
+          this.$store.commit('SET_TOKEN', '');
+          this.$store.commit('SET_USER', null);
+          this.$router.push({ path: '/login' });
         })
         .catch(() => {
           return false;
         })
       }
     },
-    components: {}
+    components: {
+      Auth
+    }
   }
 </script>
 <style lang="scss">

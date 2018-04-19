@@ -41,7 +41,7 @@
       chartA.showLoading();
       chartB.showLoading();
       chartC.showLoading();
-      this.axios.get('/api/getLineData')
+      this.axios.get('getLineData')
       .then(data => {
         if (data.errno === 0) {
           const options = data.data;

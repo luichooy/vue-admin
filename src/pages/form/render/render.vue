@@ -116,7 +116,7 @@
 
   export default {
     created () {
-      this.axios.get('/api/getFormData')
+      this.axios.get('getFormData')
       .then(data => {
         if (data.errno === 0) {
           this.formData = data.data;

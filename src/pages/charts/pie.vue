@@ -49,7 +49,7 @@
       chartB.showLoading();
       chartC.showLoading();
       chartD.showLoading();
-      this.axios.get('/api/getPieData')
+      this.axios.get('getPieData')
       .then(data => {
         if (data.errno === 0) {
           const options = data.data;

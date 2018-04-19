@@ -1,6 +1,6 @@
 const state = {
-  User: null,
-  Token: null,
+  user: null,
+  token: '',
   Breadlist: []
 };
 

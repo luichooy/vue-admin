@@ -85,7 +85,7 @@
     },
     methods: {
       getTableData () {
-        this.axios.get(`/api/getTableData?per_page=${this.pagesize}&cur_page=${this.currentpage}`)
+        this.axios.get(`getTableData?per_page=${this.pagesize}&cur_page=${this.currentpage}`)
         .then(data => {
           if (data.errno === 0) {
             this.tableData = data.data.table;

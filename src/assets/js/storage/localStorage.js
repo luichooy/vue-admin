@@ -1,5 +1,5 @@
 /**
- * @Project Name: vue-admin
+ * @Project Name: dogma
  * @Author: luichooy
  * @Date: 2018-02-07 10:53
  * @Email: luichooy@163.com
@@ -27,3 +27,5 @@ export default {
     return localStorage.keys();
   }
 };
+
+

@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "axios": "^0.17.0",
+    "axios": "^0.18.0",
     "element-ui": "^2.0.0",
     "normalize.css": "^7.0.0",
     "storejs": "^1.0.16",
