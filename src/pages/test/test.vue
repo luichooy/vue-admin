@@ -126,12 +126,12 @@
   </div>
 </template>
 <script>
-  import patient from 'src/components/patient/patient';
-  import score from 'src/components/score/score';
-  import tableRadio from 'src/components/tableRadio/tableRadio';
-  import selfAdd from 'src/components/selfAdd/selfAdd';
-  import validateCode from 'src/components/validateCode/validateCode';
-  import vmodel from 'src/components/vmodel/vmodel';
+  import patient from 'src/components/Patient/index';
+  import score from 'src/components/Score/index';
+  import tableRadio from 'src/components/TableRadio/index';
+  import selfAdd from 'src/components/SelfAdd/index';
+  import validateCode from 'src/components/ValidateCode/index';
+  import vmodel from 'src/components/Vmodel/index';
 
   export default {
     created () {

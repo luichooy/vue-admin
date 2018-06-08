@@ -71,7 +71,7 @@
   </div>
 </template>
 <script>
-  import Auth from 'src/components/auth/auth';
+  import Auth from 'src/components/Auth/index';
 
   export default {
     data () {

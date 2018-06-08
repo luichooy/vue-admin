@@ -160,7 +160,7 @@
   </div>
 </template>
 <script>
-  import { MtCard, MtCardHeader, MtCardBody } from 'src/components/card/index';
+  import { MtCard, MtCardHeader, MtCardBody } from 'src/components/Card/index';
   import { ADRESS } from 'src/assets/js/addressData';
   export default {
     mounted () {

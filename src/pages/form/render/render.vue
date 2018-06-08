@@ -111,8 +111,8 @@
   </div>
 </template>
 <script>
-  import tableRadio from 'src/components/tableRadio/tableRadio';
-  import selfAdd from 'src/components/selfAdd/selfAdd';
+  import tableRadio from 'src/components/TableRadio/index';
+  import selfAdd from 'src/components/SelfAdd/index';
 
   export default {
     created () {

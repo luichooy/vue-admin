@@ -66,7 +66,7 @@
 </template>
 <script>
   import {formatDate} from 'src/utils/utils';
-  import score from 'src/components/score/score';
+  import score from 'src/components/Score/index';
 
   const POSITIVE = 0;
   const NEGATIVE = 1;

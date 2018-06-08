@@ -52,7 +52,7 @@
   </div>
 </template>
 <script>
-  import validateCode from 'src/components/validateCode/validateCode';
+  import validateCode from 'src/components/ValidateCode/index';
 
   export default {
     created () {
