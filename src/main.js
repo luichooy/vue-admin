@@ -3,7 +3,7 @@
 import Vue from 'vue';
 import http from './http';
 import store from './store/index';
-import {router} from './router/index';
+import router from './router/index';
 import Root from './Root.vue';
 
 // 引入公共样式表
@@ -49,5 +49,5 @@ new Vue({
   store,
   router,
   template: '<Root/>',
-  components: {Root}
+  components: { Root }
 });

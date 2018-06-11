@@ -5,9 +5,7 @@ import {
   MessageBox
 } from 'element-ui';
 import store from './store/index';
-import {
-  router
-} from './router/index';
+import router from './router/index';
 import { sessionStorage } from 'src/assets/js/storage';
 
 if (!store.state.token) {

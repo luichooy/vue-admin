@@ -1,7 +1,6 @@
 const state = {
   user: null,
-  token: '',
-  Breadlist: []
+  token: ''
 };
 
 export default state;

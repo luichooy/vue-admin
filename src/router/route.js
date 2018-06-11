@@ -31,9 +31,9 @@ export const errorRouter = {
 
 // 作为main组件子页面展示  但不在左侧菜单显示的路由卸载otherRoter里
 export const otherRouter = {
-  path: '/',
+  path: '',
   name: 'otherRouter',
-  // redirect: '/home',
+  redirect: '/home',
   meta: {
     requireAuth: true
   },
@@ -136,7 +136,7 @@ export const appRouter = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'system_index',
         title: '系统管理',
         component: () => import('src/pages/system/index/index')
       }
@@ -153,7 +153,7 @@ export const appRouter = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'user_index',
         title: '用户管理',
         component: () => import('src/pages/user/index')
       }
@@ -170,7 +170,7 @@ export const appRouter = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'access_index',
         title: '权限管理',
         component: () => import('src/pages/access/index')
       }
@@ -187,7 +187,7 @@ export const appRouter = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'log_index',
         title: '操作日志',
         component: () => import('src/pages/log/index')
       }
@@ -204,7 +204,7 @@ export const appRouter = [
     children: [
       {
         path: 'index',
-        name: 'index',
+        name: 'test_index',
         title: '测试',
         component: () => import('src/pages/test/test')
       }

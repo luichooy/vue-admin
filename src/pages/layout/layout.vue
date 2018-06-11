@@ -1,6 +1,5 @@
 <template>
   <div class="layout">
-    <Auth></Auth>
     <div class="siderbar-wrapper" :style="{width: this.isCollapsed?'64px':'200px'}">
       <div class="logo-wrapper">
         logo
@@ -71,9 +70,12 @@
   </div>
 </template>
 <script>
-  import Auth from 'src/components/Auth/index';
+  import { sessionStorage } from 'src/assets/js/storage';
 
   export default {
+    created () {
+      this.checkAuth();
+    },
     data () {
       return {
         sider_menu_data: [
@@ -146,6 +148,27 @@
       }
     },
     methods: {
+      checkAuth () {
+        let token = this.$store.state.token || sessionStorage.getItem('token');
+        if (!token) {
+          this.$router.replace('/login');
+        } else {
+          this.getUser();
+        }
+      },
+      getUser () {
+        let User = {
+          id: '7f859967-9b12-441c-badc-8a7d312f6da4',
+          username: 'admin',
+          name: 'luichooy',
+          type: {
+            code: 0,
+            name: '超级管理员'
+          }
+        };
+
+        this.$store.commit('SET_USER', User);
+      },
       handleCommand (command) {
         console.log(command);
       },
@@ -161,15 +184,12 @@
         .then(() => {
           this.$store.commit('SET_TOKEN', '');
           this.$store.commit('SET_USER', null);
-          this.$router.push({ path: '/login' });
+          this.$router.replace({ path: '/login' });
         })
         .catch(() => {
           return false;
         })
       }
-    },
-    components: {
-      Auth
     }
   }
 </script>

@@ -111,33 +111,14 @@
       login () {
         /*
          *  在这边可以进行登陆请求
-         *  将请求返回的User对象，Token对象存到store中
-         *  @User 用户信息
+         *  将请求返回的Token对象存到store中
          *  @Token  token对象
         */
 
-        let User = {
-          id: '7f859967-9b12-441c-badc-8a7d312f6da4',
-          username: 'admin',
-          name: 'luichooy',
-          type: {
-            code: 0,
-            name: '超级管理员'
-          }
-        };
         let token = 'a94756da-2962-40ae-bdea-787fd02c9d92';
-        this.$store.commit('SET_USER', User);
-        this.$store.commit('SET_TOKEN', token);
 
-        const redirect = this.$route.query.redirect;
-        // console.log(this.$route);
-        console.log(redirect);
+        this.$store.commit('SET_TOKEN', token);
         this.$router.replace('home');
-        // if (redirect) {
-        //   this.$router.replace(redirect);
-        // } else {
-        //   this.$router.replace('/home');
-        // }
       }
     },
     components: {
