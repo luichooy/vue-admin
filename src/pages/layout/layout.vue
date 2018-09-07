@@ -9,8 +9,8 @@
         text-color="#fff"
         active-text-color="#65cea7"
         class="menu-wrapper"
-        :router="true"
-        :unique-opened="true"
+        router
+        unique-opened
         :collapse="isCollapsed"
         :default-active="$route.path">
         <template v-for="(item, index) in sider_menu_data">
@@ -70,13 +70,13 @@
   </div>
 </template>
 <script>
-  import { sessionStorage } from 'src/assets/js/storage';
-
+  import {sessionStorage} from 'src/assets/js/storage';
+  
   export default {
-    created () {
+    created() {
       this.checkAuth();
     },
-    data () {
+    data() {
       return {
         sider_menu_data: [
           {
@@ -89,9 +89,9 @@
             title: '表格管理',
             icon: 'el-icon-adm-linechart',
             children: [
-              { path: '/tables/basic', title: '基本表格' },
-              { path: '/tables/sort', title: '排序表格' },
-              { path: '/tables/filter', title: '筛选表格' }
+              {path: '/tables/basic', title: '基本表格'},
+              {path: '/tables/sort', title: '排序表格'},
+              {path: '/tables/filter', title: '筛选表格'}
             ]
           },
           {
@@ -99,9 +99,9 @@
             title: '图表管理',
             icon: 'el-icon-adm-statistics',
             children: [
-              { path: '/charts/bar', title: '柱状图' },
-              { path: '/charts/line', title: '折线图' },
-              { path: '/charts/pie', title: '饼图' }
+              {path: '/charts/bar', title: '柱状图'},
+              {path: '/charts/line', title: '折线图'},
+              {path: '/charts/pie', title: '饼图'}
             ]
           },
           {
@@ -109,7 +109,7 @@
             title: '表单管理',
             icon: 'el-icon-adm-form',
             children: [
-              { path: '/form/render', title: '渲染表单' }
+              {path: '/form/render', title: '渲染表单'}
             ]
           },
           {
@@ -143,12 +143,12 @@
       }
     },
     computed: {
-      user () {
+      user() {
         return this.$store.state.user;
       }
     },
     methods: {
-      checkAuth () {
+      checkAuth() {
         let token = this.$store.state.token || sessionStorage.getItem('token');
         if (!token) {
           this.$router.replace('/login');
@@ -156,7 +156,7 @@
           this.getUser();
         }
       },
-      getUser () {
+      getUser() {
         let User = {
           id: '7f859967-9b12-441c-badc-8a7d312f6da4',
           username: 'admin',
@@ -166,16 +166,16 @@
             name: '超级管理员'
           }
         };
-
+        
         this.$store.commit('SET_USER', User);
       },
-      handleCommand (command) {
+      handleCommand(command) {
         console.log(command);
       },
-      toggleMenu () {
+      toggleMenu() {
         this.isCollapsed = !this.isCollapsed;
       },
-      exit () {
+      exit() {
         this.$confirm('即将退出系统登陆，是否继续？', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -184,7 +184,7 @@
         .then(() => {
           this.$store.commit('SET_TOKEN', '');
           this.$store.commit('SET_USER', null);
-          this.$router.replace({ path: '/login' });
+          this.$router.replace({path: '/login'});
         })
         .catch(() => {
           return false;
@@ -195,7 +195,7 @@
 </script>
 <style lang="scss">
   @import '../../assets/styles/variable';
-
+  
   .siderbar-wrapper {
     position: fixed;
     top: 0;
@@ -205,17 +205,17 @@
     z-index: 11;
     background-color: $siderbarBackgroundColor;
     transition: all 0.3s ease-in-out;
-
+    
     .logo-wrapper {
       height: 40px;
       line-height: 40px;
       padding: 16px 0;
       text-align: center;
       font-size: 24px;
-      color: #ffffff;
-      color: #65cea7;
+      color: #FFFFFF;
+      color: #65CEA7;
     }
-
+    
     .menu-wrapper {
       position: absolute;
       top: 72px;
@@ -223,43 +223,43 @@
       width: 100%;
       border-right: none;
       transition: all 0.3s ease-in-out;
-
+      
       &:not(.el-menu--collapse) {
         overflow-y: auto;
         overflow-x: hidden;
       }
-
+      
       i {
-        color: #ffffff;
+        color: #FFFFFF;
       }
-
+      
       .menu-item {
-
+        
         &.is-active, &:hover {
-          background-color: #353f4f !important;
-          color: #65cea7 !important;
-
+          background-color: #353F4F !important;
+          color: #65CEA7 !important;
+          
           i {
-            color: #65cea7 !important;
+            color: #65CEA7 !important;
           }
         }
-
+        
       }
-
+      
       .el-submenu__title:hover {
-        color: #65cea7 !important;
-
+        color: #65CEA7 !important;
+        
         i {
-          color: #65cea7 !important;
+          color: #65CEA7 !important;
         }
       }
-
+      
       .el-submenu, .el-menu-item {
         width: 100%;
       }
     }
   }
-
+  
   .topbar-wrapper {
     position: fixed;
     left: $siderbarWidth;
@@ -272,23 +272,23 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12), 0 0 6px 0 rgba(0, 0, 0, .04);
     transition: all 0.3s ease-in-out;
     z-index: 12;
-
+    
     .menu-collapse-wrapper {
       height: 100%;
       width: 48px;
       text-align: center;
       cursor: pointer;
-
+      
       i {
         transition: all 0.3s ease-in-out;
       }
     }
-
+    
     .title {
       height: 100%;
       font-weight: bold;
     }
-
+    
     .menu-list {
       .menu-item {
         position: relative;
@@ -298,17 +298,17 @@
         height: 48px;
         text-align: center;
         font-size: 0px;
-
+        
         &:hover {
           cursor: pointer;
-          background-color: #f5f5f5;
+          background-color: #F5F5F5;
         }
-
+        
         .icon {
           vertical-align: middle;
           font-size: 24px;
         }
-
+        
         .text {
           display: inline-block;
           vertical-align: middle;
@@ -318,7 +318,7 @@
       }
     }
   }
-
+  
   .content-wrapper {
     position: fixed;
     left: $siderbarWidth;
@@ -328,7 +328,7 @@
     padding: 16px;
     overflow: auto;
     transition: all 0.3s ease-in-out;
-
+    
     .content {
       position: relative;
       width: 100%;
