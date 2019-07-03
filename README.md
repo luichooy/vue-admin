@@ -8,7 +8,7 @@
 > [新版传送门](https://github.com/luichooy/vue-antd-pro)
 
 
-以下时本项目介绍，基于***vue-cli2***和***Element-ui***
+以下是本项目介绍，基于***vue-cli2***和***Element-ui***
 
 ## github:  [https://github.com/luichooy/vue-admin.git](https://github.com/luichooy/vue-admin.git)
 
