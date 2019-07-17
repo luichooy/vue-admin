@@ -87,14 +87,6 @@
   </div>
 </template>
 <script>
-  export default {
-    mounted () {
-//      this.$store.commit('setBreadlist', [{path: '/home', meta: {title: '首页'}}]);
-    }
-  }
+  export default {}
 </script>
-<style lang="scss" scoped>
-  .home{
 
-  }
-</style>
