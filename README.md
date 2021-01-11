@@ -31,19 +31,19 @@ yarn lint
 
 ```
 ├── public
-｜   ├── favicon.ico
-｜   ├── index.html
+│   ├── favicon.ico
+│   ├── index.html
 ├── src
 │   ├── common
 │   │   └── styles
-│   │   │   ├── base.scss
-│   │   │   ├── common.scss
+│   │   │   ├── base.less
+│   │   │   ├── common.less
 │   │   │   ├── iconfont.css
-│   │   │   ├── mixin.scss
-│   │   │   ├── table.scss
-│   │   │   ├── variable.scss
+│   │   │   ├── mixin.less
+│   │   │   ├── table.less
+│   │   │   ├── variable.less
 │   │   ├── util
-｜   ｜   ｜   ├── date
+│   │   │   ├── date
 │   │   │   ├── http
 │   │   │   ├── storage
 │   │   │   ├── index.js
@@ -76,6 +76,7 @@ yarn lint
 │   ├── App.vue
 ├── browserlistrc
 ├── eslintrc.js
+├── .prettierrc
 ├── .gitignore
 ├── babel.config.js
 ├── package.json
