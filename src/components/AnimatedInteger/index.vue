@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import TWEEN from "@tweenjs/tween.js";
+import TWEEN from '@tweenjs/tween.js'
 
-console.log(TWEEN);
+console.log(TWEEN)
 
 export default {
-  name: "animated-integer",
+  name: 'animated-integer',
   props: {
     value: {
       type: Number,
@@ -18,35 +18,35 @@ export default {
   data() {
     return {
       tweeningValue: 0
-    };
+    }
   },
   watch: {
     value: function(newValue, oldValue) {
-      this.tween(oldValue, newValue);
+      this.tween(oldValue, newValue)
     }
   },
   mounted: function() {
-    this.tween(0, this.value);
+    this.tween(0, this.value)
   },
   methods: {
     tween: function(startValue, endValue) {
-      let vm = this;
+      let vm = this
 
       function animate() {
         if (TWEEN.update()) {
-          requestAnimationFrame(animate);
+          requestAnimationFrame(animate)
         }
       }
 
       new TWEEN.Tween({ tweeningValue: startValue })
         .to({ tweeningValue: endValue }, 500)
         .onUpdate(function(object) {
-          vm.tweeningValue = object.tweeningValue.toFixed(0);
+          vm.tweeningValue = object.tweeningValue.toFixed(0)
         })
-        .start();
+        .start()
 
-      animate();
+      animate()
     }
   }
-};
+}
 </script>

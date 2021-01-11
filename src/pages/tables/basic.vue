@@ -93,14 +93,14 @@
   </div>
 </template>
 <script>
-import { format } from "@/common/utils/date";
-import score from "@/components/Score/index";
+import { format } from '@/common/utils/date'
+import score from '@/components/Score/index'
 
-const POSITIVE = 0;
-const NEGATIVE = 1;
+const POSITIVE = 0
+const NEGATIVE = 1
 export default {
   created() {
-    this.getTableData();
+    this.getTableData()
   },
   data() {
     return {
@@ -109,7 +109,7 @@ export default {
       pagesize: 10,
       currentpage: 1,
       total: 0
-    };
+    }
   },
   methods: {
     getTableData() {
@@ -119,47 +119,47 @@ export default {
         )
         .then(data => {
           if (data.errno === 0) {
-            this.tableData = data.data.table;
-            this.total = data.data.total;
-            this.loading = false;
+            this.tableData = data.data.table
+            this.total = data.data.total
+            this.loading = false
           } else {
-            console.log(data.msg);
+            console.log(data.msg)
           }
         })
         .catch(error => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     },
     show(scope) {
-      console.log(scope);
+      console.log(scope)
     },
     handleSizeChange(value) {
-      this.pagesize = value;
-      this.getTableData();
+      this.pagesize = value
+      this.getTableData()
     },
     handleCurrentChange(value) {
-      this.currentpage = value;
-      this.getTableData();
+      this.currentpage = value
+      this.getTableData()
     },
     addRowClass({ row }) {
       if (row.rateType === NEGATIVE) {
-        return "warning-row";
+        return 'warning-row'
       }
     }
   },
   filters: {
     rateTypeToText(rateType) {
-      return rateType === POSITIVE ? "满意" : "不满意";
+      return rateType === POSITIVE ? '满意' : '不满意'
     },
     formatDate(time) {
-      let date = new Date(time);
-      return format(date, "yyyy-MM-dd hh:mm:ss");
+      let date = new Date(time)
+      return format(date, 'yyyy-MM-dd hh:mm:ss')
     }
   },
   components: {
     score
   }
-};
+}
 </script>
 <style lang="less">
 .basic {

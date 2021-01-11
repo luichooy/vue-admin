@@ -13,32 +13,32 @@
 </template>
 <script>
 export default {
-  name: "MtCardHeader",
+  name: 'MtCardHeader',
   data() {
     return {
-      foldIconClass: "el-icon-arrow-down",
+      foldIconClass: 'el-icon-arrow-down',
       isCollapse: this.$parent.isOpen
-    };
+    }
   },
   mounted() {
-    let collapse = this.$refs["collapse"];
-    if (!collapse.classList.contains("is-collapse")) {
-      this.foldIconClass = "el-icon-arrow-up";
+    let collapse = this.$refs['collapse']
+    if (!collapse.classList.contains('is-collapse')) {
+      this.foldIconClass = 'el-icon-arrow-up'
     }
   },
   methods: {
     toggleCard() {
-      this.isCollapse = !this.isCollapse;
+      this.isCollapse = !this.isCollapse
       this.foldIconClass = this.isCollapse
-        ? "el-icon-arrow-down"
-        : "el-icon-arrow-up";
-      this.$parent._setOpen(this.isCollapse);
+        ? 'el-icon-arrow-down'
+        : 'el-icon-arrow-up'
+      this.$parent._setOpen(this.isCollapse)
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
-@import "../../common/styles/variable.less";
+@import '../../common/styles/variable.less';
 .mt-card-header {
   position: relative;
   height: 40px;

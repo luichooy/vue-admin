@@ -7,11 +7,11 @@
 </template>
 <script>
 export default {
-  name: "MtCardFooter"
-};
+  name: 'MtCardFooter'
+}
 </script>
 <style lang="less" scoped>
-@import "../../common/styles/variable.less";
+@import '../../common/styles/variable.less';
 /*.slide-enter-active, .slide-leave-active{*/
 /*transition: height 500ms linear;*/
 /*}*/

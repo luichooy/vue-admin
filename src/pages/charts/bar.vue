@@ -33,73 +33,73 @@
 <script>
 export default {
   mounted() {
-    const chartA = this.$refs["A"];
-    const chartB = this.$refs["B"];
-    const chartC = this.$refs["C"];
-    const chartD = this.$refs["D"];
-    chartA.showLoading();
-    chartB.showLoading();
-    chartC.showLoading();
-    chartD.showLoading();
+    const chartA = this.$refs['A']
+    const chartB = this.$refs['B']
+    const chartC = this.$refs['C']
+    const chartD = this.$refs['D']
+    chartA.showLoading()
+    chartB.showLoading()
+    chartC.showLoading()
+    chartD.showLoading()
     this.axios
-      .get("getBarData")
+      .get('getBarData')
       .then(data => {
-        console.log(data);
+        console.log(data)
         if (data.errno === 0) {
-          const options = data.data;
+          const options = data.data
           chartA.mergeOptions({
             series: options.optionsA.series
-          });
+          })
           chartB.mergeOptions({
             series: options.optionsB.series
-          });
+          })
           chartC.mergeOptions({
             series: options.optionsC.series
-          });
+          })
           chartD.mergeOptions({
             series: options.optionsD.series
-          });
+          })
           setTimeout(() => {
-            chartA.hideLoading();
-            chartB.hideLoading();
-            chartC.hideLoading();
-            chartD.hideLoading();
-          }, 1000);
+            chartA.hideLoading()
+            chartB.hideLoading()
+            chartC.hideLoading()
+            chartD.hideLoading()
+          }, 1000)
         } else {
-          chartA.hideLoading();
-          chartB.hideLoading();
-          chartC.hideLoading();
-          chartD.hideLoading();
-          console.log(data.msg);
+          chartA.hideLoading()
+          chartB.hideLoading()
+          chartC.hideLoading()
+          chartD.hideLoading()
+          console.log(data.msg)
         }
       })
       .catch(error => {
-        chartA.hideLoading();
-        chartB.hideLoading();
-        chartC.hideLoading();
-        chartD.hideLoading();
-        console.log(error);
-      });
+        chartA.hideLoading()
+        chartB.hideLoading()
+        chartC.hideLoading()
+        chartD.hideLoading()
+        console.log(error)
+      })
   },
   data() {
     return {
       optionsA: {
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
         legend: {
-          data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"]
+          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar", "stack", "tiled"] },
+            magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
@@ -107,58 +107,58 @@ export default {
         calculable: true,
         xAxis: [
           {
-            type: "value"
+            type: 'value'
           }
         ],
         yAxis: [
           {
-            type: "category",
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
           }
         ],
         series: [
           {
-            name: "直接访问",
-            type: "bar",
-            stack: "总量",
+            name: '直接访问',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
-              normal: { label: { show: true, position: "insideRight" } }
+              normal: { label: { show: true, position: 'insideRight' } }
             },
             data: null
           },
           {
-            name: "邮件营销",
-            type: "bar",
-            stack: "总量",
+            name: '邮件营销',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
-              normal: { label: { show: true, position: "insideRight" } }
+              normal: { label: { show: true, position: 'insideRight' } }
             },
             data: null
           },
           {
-            name: "联盟广告",
-            type: "bar",
-            stack: "总量",
+            name: '联盟广告',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
-              normal: { label: { show: true, position: "insideRight" } }
+              normal: { label: { show: true, position: 'insideRight' } }
             },
             data: null
           },
           {
-            name: "视频广告",
-            type: "bar",
-            stack: "总量",
+            name: '视频广告',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
-              normal: { label: { show: true, position: "insideRight" } }
+              normal: { label: { show: true, position: 'insideRight' } }
             },
             data: null
           },
           {
-            name: "搜索引擎",
-            type: "bar",
-            stack: "总量",
+            name: '搜索引擎',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
-              normal: { label: { show: true, position: "insideRight" } }
+              normal: { label: { show: true, position: 'insideRight' } }
             },
             data: null
           }
@@ -167,75 +167,75 @@ export default {
       optionsB: {
         title: {
           show: false,
-          text: "某地区蒸发量和降水量",
-          subtext: "纯属虚构"
+          text: '某地区蒸发量和降水量',
+          subtext: '纯属虚构'
         },
         tooltip: {
-          trigger: "axis"
+          trigger: 'axis'
         },
         legend: {
           left: 0,
-          data: ["蒸发量", "降水量"]
+          data: ['蒸发量', '降水量']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
+            magicType: { show: true, type: ['line', 'bar'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
         },
         xAxis: [
           {
-            data: ["1月", "2月", "3月", "4月", "5月", "6月"]
+            data: ['1月', '2月', '3月', '4月', '5月', '6月']
           }
         ],
         yAxis: {},
         series: [
           {
-            name: "蒸发量",
-            type: "bar",
+            name: '蒸发量',
+            type: 'bar',
             data: null,
             itemStyle: {
               normal: {
-                color: "#2EC7C9"
+                color: '#2EC7C9'
               }
             },
             markPoint: {
               data: [
-                { type: "max", name: "最大值" },
-                { type: "min", name: "最小值" }
+                { type: 'max', name: '最大值' },
+                { type: 'min', name: '最小值' }
               ]
             },
             markLine: {
-              data: [{ type: "average", name: "平均值" }]
+              data: [{ type: 'average', name: '平均值' }]
             }
           },
           {
-            name: "降水量",
-            type: "bar",
+            name: '降水量',
+            type: 'bar',
             data: null,
             itemStyle: {
               normal: {
-                color: "#B6A2DE"
+                color: '#B6A2DE'
               }
             },
             markPoint: {
               data: [
                 {
-                  name: "年最高",
+                  name: '年最高',
                   value: 182.2,
                   xAxis: 7,
                   yAxis: 183,
                   symbolSize: 18
                 },
-                { name: "年最低", value: 2.3, xAxis: 11, yAxis: 3 }
+                { name: '年最低', value: 2.3, xAxis: 11, yAxis: 3 }
               ]
             },
             markLine: {
-              data: [{ type: "average", name: "平均值" }]
+              data: [{ type: 'average', name: '平均值' }]
             }
           }
         ]
@@ -243,69 +243,69 @@ export default {
       optionsC: {
         title: {
           show: false,
-          text: "收支盈利统计图"
+          text: '收支盈利统计图'
         },
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
         legend: {
-          data: ["利润", "支出", "收入"]
+          data: ['利润', '支出', '收入']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
+            magicType: { show: true, type: ['line', 'bar'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
         },
-        xAxis: { type: "value" },
+        xAxis: { type: 'value' },
         yAxis: [
           {
-            type: "category",
+            type: 'category',
             axisTick: { show: false },
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
           }
         ],
         series: [
           {
-            name: "利润",
-            type: "bar",
+            name: '利润',
+            type: 'bar',
             itemStyle: {
               normal: {
-                label: { show: true, position: "inside" },
-                color: "#1790CF"
+                label: { show: true, position: 'inside' },
+                color: '#1790CF'
               }
             },
             data: null
           },
           {
-            name: "收入",
-            type: "bar",
-            stack: "总量",
+            name: '收入',
+            type: 'bar',
+            stack: '总量',
             barWidth: 5,
             itemStyle: {
               normal: {
-                label: { show: true, position: "right" },
-                color: "#99D2DD"
+                label: { show: true, position: 'right' },
+                color: '#99D2DD'
               }
             },
             data: null
           },
           {
-            name: "支出",
-            type: "bar",
-            stack: "总量",
+            name: '支出',
+            type: 'bar',
+            stack: '总量',
             itemStyle: {
               normal: {
-                label: { show: true, position: "left" },
-                color: "#1BB2D8"
+                label: { show: true, position: 'left' },
+                color: '#1BB2D8'
               }
             },
             data: null
@@ -315,25 +315,25 @@ export default {
       optionsD: {
         title: {
           show: false,
-          text: "世界人口总量",
-          subtext: "数据来自网络"
+          text: '世界人口总量',
+          subtext: '数据来自网络'
         },
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
         legend: {
-          data: ["2011年", "2012年"]
+          data: ['2011年', '2012年']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
+            magicType: { show: true, type: ['line', 'bar'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
@@ -341,41 +341,41 @@ export default {
         //          calculable: true,
         xAxis: [
           {
-            type: "value",
+            type: 'value',
             boundaryGap: [0, 0.01]
           }
         ],
         yAxis: [
           {
-            type: "category",
-            data: ["巴西", "印尼", "美国", "印度", "中国", "世界人口(万)"]
+            type: 'category',
+            data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
           }
         ],
         series: [
           {
-            name: "2011年",
-            type: "bar",
+            name: '2011年',
+            type: 'bar',
             data: null,
             itemStyle: {
               normal: {
-                color: "#FF7F50"
+                color: '#FF7F50'
               }
             }
           },
           {
-            name: "2012年",
-            type: "bar",
+            name: '2012年',
+            type: 'bar',
             data: null,
             itemStyle: {
               normal: {
-                color: "#87CEFA"
+                color: '#87CEFA'
               }
             }
           }
         ]
       }
-    };
+    }
   }
-};
+}
 </script>
 <style lang="less" scoped></style>

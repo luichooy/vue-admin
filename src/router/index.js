@@ -1,46 +1,46 @@
-import { Loading } from "element-ui";
-import Vue from "vue";
-import VueRouter from "vue-router";
-import { setTitle } from "../common/utils";
-import { routers } from "./route";
+import { Loading } from 'element-ui'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import { setTitle } from '../common/utils'
+import { routers } from './route'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routerConfig = {
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  linkActiveClass: "active",
+  linkActiveClass: 'active',
   routes: routers
-};
+}
 
-const router = new VueRouter(routerConfig);
+const router = new VueRouter(routerConfig)
 
-let loading;
+let loading
 router.beforeEach((to, _form, next) => {
   loading = Loading.service({
     // fullscreen: true,
-    target: ".content-wrapper",
-    text: "跳转中..."
-  });
+    target: '.content-wrapper',
+    text: '跳转中...'
+  })
 
   // 设置window.document.title 的名称
-  setTitle(to.meta.title);
+  setTitle(to.meta.title)
 
   if (!to.matched.length) {
     next({
-      path: "/error/404",
+      path: '/error/404',
       replace: true
-    });
+    })
   } else {
-    next();
+    next()
   }
-});
+})
 
 router.afterEach(() => {
   // 解决某些情况下loading无法关闭的情况
   setTimeout(() => {
-    loading.close();
-  }, 0);
-});
+    loading.close()
+  }, 0)
+})
 
-export default router;
+export default router

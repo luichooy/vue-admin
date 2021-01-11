@@ -77,58 +77,58 @@
   </div>
 </template>
 <script>
-import validateCode from "@/components/ValidateCode/index";
+import validateCode from '@/components/ValidateCode/index'
 
 export default {
   created() {},
   data() {
     var checkYanzhengma = (rule, value, callback) => {
-      value = value.toUpperCase();
-      if (value === "") {
-        callback(new Error("请输入验证码"));
+      value = value.toUpperCase()
+      if (value === '') {
+        callback(new Error('请输入验证码'))
       } else if (value !== this.checkCode) {
-        callback(new Error("验证码错误"));
-        this.$refs["validate-code"].draw();
+        callback(new Error('验证码错误'))
+        this.$refs['validate-code'].draw()
       } else {
-        callback();
+        callback()
       }
-    };
+    }
     return {
-      passwordType: "password",
-      checkCode: "",
+      passwordType: 'password',
+      checkCode: '',
       form: {
-        username: "",
-        password: "",
-        yanzhengma: ""
+        username: '',
+        password: '',
+        yanzhengma: ''
       },
       rules: {
         username: [
-          { required: true, message: "账号不能为空", trigger: "blur" }
+          { required: true, message: '账号不能为空', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+          { required: true, message: '密码不能为空', trigger: 'blur' }
         ],
-        yanzhengma: [{ validator: checkYanzhengma, trigger: "blur" }]
+        yanzhengma: [{ validator: checkYanzhengma, trigger: 'blur' }]
       }
-    };
+    }
   },
   methods: {
     _setCheckCode(value) {
-      this.checkCode = value;
+      this.checkCode = value
     },
     _togglePasswordType() {
-      if (this.passwordType === "password") {
-        this.passwordType = "text";
+      if (this.passwordType === 'password') {
+        this.passwordType = 'text'
       } else {
-        this.passwordType = "password";
+        this.passwordType = 'password'
       }
     },
     loginHandle(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.login();
+          this.login()
         }
-      });
+      })
     },
     login() {
       /*
@@ -137,16 +137,16 @@ export default {
        *  @Token  token对象
        */
 
-      let token = "a94756da-2962-40ae-bdea-787fd02c9d92";
+      let token = 'a94756da-2962-40ae-bdea-787fd02c9d92'
 
-      this.$store.commit("SET_TOKEN", token);
-      this.$router.replace("home");
+      this.$store.commit('SET_TOKEN', token)
+      this.$router.replace('home')
     }
   },
   components: {
     validateCode
   }
-};
+}
 </script>
 <style lang="less" scoped>
 .login {

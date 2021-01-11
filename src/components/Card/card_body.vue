@@ -7,13 +7,13 @@
 </template>
 <script>
 export default {
-  name: "MtCardBody",
+  name: 'MtCardBody',
   mounted() {
     //      console.log('body ');
     //      console.log(this.$parent.isOpen);
     //      console.log(this.$parent.collapse);
   }
-};
+}
 </script>
 <style lang="less" scoped>
 /*.slide-enter-active, .slide-leave-active{*/

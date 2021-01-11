@@ -102,129 +102,129 @@
   </div>
 </template>
 <script>
-import { sessionStorage } from "../../common/utils/storage";
+import { sessionStorage } from '../../common/utils/storage'
 
 export default {
   created() {
-    this.checkAuth();
+    this.checkAuth()
   },
   data() {
     return {
       sider_menu_data: [
         {
-          path: "/home",
-          title: "首页",
-          icon: "el-icon-adm-home"
+          path: '/home',
+          title: '首页',
+          icon: 'el-icon-adm-home'
         },
         {
-          path: "/tables",
-          title: "表格管理",
-          icon: "el-icon-adm-linechart",
+          path: '/tables',
+          title: '表格管理',
+          icon: 'el-icon-adm-linechart',
           children: [
-            { path: "/tables/basic", title: "基本表格" },
-            { path: "/tables/sort", title: "排序表格" },
-            { path: "/tables/filter", title: "筛选表格" }
+            { path: '/tables/basic', title: '基本表格' },
+            { path: '/tables/sort', title: '排序表格' },
+            { path: '/tables/filter', title: '筛选表格' }
           ]
         },
         {
-          path: "/charts",
-          title: "图表管理",
-          icon: "el-icon-adm-statistics",
+          path: '/charts',
+          title: '图表管理',
+          icon: 'el-icon-adm-statistics',
           children: [
-            { path: "/charts/bar", title: "柱状图" },
-            { path: "/charts/line", title: "折线图" },
-            { path: "/charts/pie", title: "饼图" }
+            { path: '/charts/bar', title: '柱状图' },
+            { path: '/charts/line', title: '折线图' },
+            { path: '/charts/pie', title: '饼图' }
           ]
         },
         {
-          path: "/form",
-          title: "表单管理",
-          icon: "el-icon-adm-form",
-          children: [{ path: "/form/render", title: "渲染表单" }]
+          path: '/form',
+          title: '表单管理',
+          icon: 'el-icon-adm-form',
+          children: [{ path: '/form/render', title: '渲染表单' }]
         },
         {
-          path: "/system/index",
-          title: "系统管理",
-          icon: "el-icon-adm-project"
+          path: '/system/index',
+          title: '系统管理',
+          icon: 'el-icon-adm-project'
         },
         {
-          path: "/user/index",
-          title: "用户管理",
-          icon: "el-icon-adm-user"
+          path: '/user/index',
+          title: '用户管理',
+          icon: 'el-icon-adm-user'
         },
         {
-          path: "/access/index",
-          title: "权限管理",
-          icon: "el-icon-adm-organization"
+          path: '/access/index',
+          title: '权限管理',
+          icon: 'el-icon-adm-organization'
         },
         {
-          path: "/log/index",
-          title: "操作日志",
-          icon: "el-icon-adm-log"
+          path: '/log/index',
+          title: '操作日志',
+          icon: 'el-icon-adm-log'
         },
         {
-          path: "/test/index",
-          title: "测试",
-          icon: "el-icon-adm-formsetup"
+          path: '/test/index',
+          title: '测试',
+          icon: 'el-icon-adm-formsetup'
         }
       ],
       isCollapsed: false,
       adminMenuShow: false
-    };
+    }
   },
   computed: {
     user() {
-      return this.$store.state.user;
+      return this.$store.state.user
     }
   },
   methods: {
     checkAuth() {
-      let token = this.$store.state.token || sessionStorage.getItem("token");
+      let token = this.$store.state.token || sessionStorage.getItem('token')
       if (!token) {
-        this.$router.replace("/login");
+        this.$router.replace('/login')
       } else {
-        this.getUser();
+        this.getUser()
       }
     },
     getUser() {
       let User = {
-        id: "7f859967-9b12-441c-badc-8a7d312f6da4",
-        username: "admin",
-        name: "luichooy",
+        id: '7f859967-9b12-441c-badc-8a7d312f6da4',
+        username: 'admin',
+        name: 'luichooy',
         type: {
           code: 0,
-          name: "超级管理员"
+          name: '超级管理员'
         }
-      };
+      }
 
-      this.$store.commit("SET_USER", User);
+      this.$store.commit('SET_USER', User)
     },
     handleCommand(command) {
-      console.log(command);
+      console.log(command)
     },
     toggleMenu() {
-      this.isCollapsed = !this.isCollapsed;
+      this.isCollapsed = !this.isCollapsed
     },
     exit() {
-      this.$confirm("即将退出系统登陆，是否继续？", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
+      this.$confirm('即将退出系统登陆，是否继续？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.$store.commit("SET_TOKEN", "");
-          this.$store.commit("SET_USER", null);
-          this.$router.replace({ path: "/login" });
+          this.$store.commit('SET_TOKEN', '')
+          this.$store.commit('SET_USER', null)
+          this.$router.replace({ path: '/login' })
         })
         .catch(() => {
-          return false;
-        });
+          return false
+        })
     }
   }
-};
+}
 </script>
 <style lang="less">
-@import "../../common/styles/variable.less";
+@import '../../common/styles/variable.less';
 
 .siderbar-wrapper {
   position: fixed;

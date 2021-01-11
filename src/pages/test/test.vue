@@ -122,131 +122,131 @@
   </div>
 </template>
 <script>
-import patient from "@/components/Patient/index";
-import score from "@/components/Score/index";
-import tableRadio from "@/components/TableRadio/index";
-import selfAdd from "@/components/SelfAdd/index";
-import validateCode from "@/components/ValidateCode/index";
+import patient from '@/components/Patient/index'
+import score from '@/components/Score/index'
+import tableRadio from '@/components/TableRadio/index'
+import selfAdd from '@/components/SelfAdd/index'
+import validateCode from '@/components/ValidateCode/index'
 // import vmodel from "@/components/Vmodel/index";
 
 export default {
   created() {
-    this.getAddressData();
-    console.log(this.tableData);
+    this.getAddressData()
+    console.log(this.tableData)
   },
   data() {
     return {
       options: [],
       selectedOptions: [],
       tableRadioData: {
-        id: "b3",
-        title: "一周中,您和家人共同进餐(1人或1人以上)的次数如何",
-        code: "B3",
-        type: "tableRadio",
+        id: 'b3',
+        title: '一周中,您和家人共同进餐(1人或1人以上)的次数如何',
+        code: 'B3',
+        type: 'tableRadio',
         values: {
-          0: "0-1 天/周",
-          1: "2-3 天/周",
-          2: "4-5 天/周",
-          3: "6-7 天/周"
+          0: '0-1 天/周',
+          1: '2-3 天/周',
+          2: '4-5 天/周',
+          3: '6-7 天/周'
         },
         sub_fields: [
           {
-            id: "breakfast",
-            type: "radio",
-            title: "早餐",
+            id: 'breakfast',
+            type: 'radio',
+            title: '早餐',
             values: {
-              0: "0-1 天/周",
-              1: "2-3 天/周",
-              2: "4-5 天/周",
-              3: "6-7 天/周"
+              0: '0-1 天/周',
+              1: '2-3 天/周',
+              2: '4-5 天/周',
+              3: '6-7 天/周'
             },
             value: null
           },
           {
-            id: "lunch",
-            type: "radio",
-            title: "午餐",
+            id: 'lunch',
+            type: 'radio',
+            title: '午餐',
             values: {
-              0: "0-1 天/周",
-              1: "2-3 天/周",
-              2: "4-5 天/周",
-              3: "6-7 天/周"
+              0: '0-1 天/周',
+              1: '2-3 天/周',
+              2: '4-5 天/周',
+              3: '6-7 天/周'
             },
             value: null
           },
           {
-            id: "supper",
-            type: "radio",
-            title: "晚餐",
+            id: 'supper',
+            type: 'radio',
+            title: '晚餐',
             values: {
-              0: "0-1 天/周",
-              1: "2-3 天/周",
-              2: "4-5 天/周",
-              3: "6-7 天/周"
+              0: '0-1 天/周',
+              1: '2-3 天/周',
+              2: '4-5 天/周',
+              3: '6-7 天/周'
             },
             value: null
           }
         ]
       },
       tableData: {
-        id: "use_of_thread_condition",
-        title: "导丝的使用情况",
-        type: "table",
+        id: 'use_of_thread_condition',
+        title: '导丝的使用情况',
+        type: 'table',
         value: [],
         sub_fields: [
           {
-            id: "code_number",
-            type: "text",
-            title: "编号",
+            id: 'code_number',
+            type: 'text',
+            title: '编号',
             value: null
           },
           {
-            id: "name",
-            type: "text",
-            title: "名称",
+            id: 'name',
+            type: 'text',
+            title: '名称',
             value: null
           },
           {
-            id: "diameter",
-            type: "number",
-            title: "直径",
-            unit: "inch",
+            id: 'diameter',
+            type: 'number',
+            title: '直径',
+            unit: 'inch',
             value: null
           }
         ]
       }
-    };
+    }
   },
   methods: {
     handleClick(e) {
-      console.log(e);
-      console.log(this);
+      console.log(e)
+      console.log(this)
     },
     getAddressData() {
-      let that = this;
+      let that = this
       this.axios
-        .get("addressData")
+        .get('addressData')
         .then(function(res) {
-          const response = res.data;
+          const response = res.data
           if (response.errno === 0) {
-            that.options = response.data;
+            that.options = response.data
           }
         })
         .catch(function(error) {
-          console.log(error);
-        });
+          console.log(error)
+        })
     }
   },
   watch: {
     tableRadioData: {
       handler: function(newValue) {
-        console.log(newValue);
+        console.log(newValue)
       },
       deep: true
     },
     tableData: {
       handler: function(newValue) {
-        console.log(newValue);
+        console.log(newValue)
       },
       deep: true
     }
@@ -259,7 +259,7 @@ export default {
     validateCode
     // vmodel
   }
-};
+}
 </script>
 <style lang="less">
 .el-card {

@@ -5,25 +5,25 @@
  * @Email: luichooy@163.com
  * @Idea: WebStorm
  */
-const localStorage = window.localStorage;
+const localStorage = window.localStorage
 export default {
   getItem(key) {
     try {
-      return JSON.parse(localStorage.getItem(key));
+      return JSON.parse(localStorage.getItem(key))
     } catch (err) {
-      return null;
+      return null
     }
   },
   setItem(key, val) {
-    localStorage.setItem(key, JSON.stringify(val));
+    localStorage.setItem(key, JSON.stringify(val))
   },
   removeItem(key) {
-    localStorage.removeItem(key);
+    localStorage.removeItem(key)
   },
   clear() {
-    localStorage.clear();
+    localStorage.clear()
   },
   keys() {
-    return localStorage.keys();
+    return localStorage.keys()
   }
-};
+}

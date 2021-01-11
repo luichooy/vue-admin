@@ -54,11 +54,11 @@
 <script>
 export default {
   mounted() {
-    this.data.value.push(this.getValueItem());
+    this.data.value.push(this.getValueItem())
   },
   model: {
-    prop: "data",
-    event: "change"
+    prop: 'data',
+    event: 'change'
   },
   props: {
     data: {
@@ -74,62 +74,62 @@ export default {
     // 水平对齐方式
     align: {
       type: String,
-      default: "center"
+      default: 'center'
     }
   },
   data() {
-    return {};
+    return {}
   },
   computed: {
     tableClsArr() {
-      let result = [];
+      let result = []
 
       // 是否加边框
 
       if (this.border) {
-        result.push("table-border");
+        result.push('table-border')
       }
 
       // 水平对其方式
       switch (this.align) {
-        case "left":
-          result.push("is-left");
-          break;
-        case "center":
-          result.push("is-center");
-          break;
-        case "right":
-          result.push("is-right");
-          break;
+        case 'left':
+          result.push('is-left')
+          break
+        case 'center':
+          result.push('is-center')
+          break
+        case 'right':
+          result.push('is-right')
+          break
         default:
-          return new Error("align的值必须为left/center/right");
+          return new Error('align的值必须为left/center/right')
       }
 
-      return result;
+      return result
     }
   },
   methods: {
     getValueItem() {
       let obj = {
-        id: "",
+        id: '',
         value: []
-      };
-      let timeStamp = Date.now();
-      obj.id = timeStamp;
+      }
+      let timeStamp = Date.now()
+      obj.id = timeStamp
       this.data.sub_fields.forEach(item => {
-        let temp = Object.assign({}, item);
-        temp.id = `${temp.id}|${timeStamp}`;
-        obj.value.push(temp);
-      });
-      return obj;
+        let temp = Object.assign({}, item)
+        temp.id = `${temp.id}|${timeStamp}`
+        obj.value.push(temp)
+      })
+      return obj
     },
     addRow() {
-      console.log(this.value);
-      this.data.value.push(this.getValueItem());
+      console.log(this.value)
+      this.data.value.push(this.getValueItem())
     },
     deleteRow(row) {
-      this.data.value = this.data.value.filter(item => item.id !== row.id);
-      console.log(this.data);
+      this.data.value = this.data.value.filter(item => item.id !== row.id)
+      console.log(this.data)
       //        console.log(this.options)
       //        console.log(row);
     }
@@ -137,15 +137,15 @@ export default {
   watch: {
     data: {
       handler: function(newValue) {
-        this.$emit("change", newValue);
+        this.$emit('change', newValue)
       },
       deep: true
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
-@import "../../common/styles/table";
+@import '../../common/styles/table';
 
 tbody {
   tr {

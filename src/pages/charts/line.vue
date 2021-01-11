@@ -27,65 +27,65 @@
 <script>
 export default {
   mounted() {
-    const chartA = this.$refs["A"];
-    const chartB = this.$refs["B"];
-    const chartC = this.$refs["C"];
-    chartA.showLoading();
-    chartB.showLoading();
-    chartC.showLoading();
+    const chartA = this.$refs['A']
+    const chartB = this.$refs['B']
+    const chartC = this.$refs['C']
+    chartA.showLoading()
+    chartB.showLoading()
+    chartC.showLoading()
     this.axios
-      .get("getLineData")
+      .get('getLineData')
       .then(data => {
         if (data.errno === 0) {
-          const options = data.data;
+          const options = data.data
           chartA.mergeOptions({
             series: options.optionsA.series
-          });
+          })
           chartB.mergeOptions({
             series: options.optionsB.series
-          });
+          })
           chartC.mergeOptions({
             series: options.optionsC.series
-          });
+          })
           setTimeout(() => {
-            chartA.hideLoading();
-            chartB.hideLoading();
-            chartC.hideLoading();
-          }, 1000);
+            chartA.hideLoading()
+            chartB.hideLoading()
+            chartC.hideLoading()
+          }, 1000)
         } else {
-          chartA.hideLoading();
-          chartB.hideLoading();
-          chartC.hideLoading();
-          console.log(data.msg);
+          chartA.hideLoading()
+          chartB.hideLoading()
+          chartC.hideLoading()
+          console.log(data.msg)
         }
       })
       .catch(error => {
-        chartA.hideLoading();
-        chartB.hideLoading();
-        chartC.hideLoading();
-        console.log(error);
-      });
+        chartA.hideLoading()
+        chartB.hideLoading()
+        chartC.hideLoading()
+        console.log(error)
+      })
   },
   data() {
     return {
       optionsA: {
         title: {
           show: false,
-          text: "某周网站访客来源趋势图"
+          text: '某周网站访客来源趋势图'
         },
         tooltip: {
-          trigger: "axis"
+          trigger: 'axis'
         },
         legend: {
           bottom: 0,
-          data: ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]
+          data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar", "stack", "tiled"] },
+            magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
@@ -93,69 +93,69 @@ export default {
         calculable: true,
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
           }
         ],
         yAxis: [
           {
-            type: "value"
+            type: 'value'
           }
         ],
         series: [
           {
-            name: "邮件营销",
-            type: "line",
-            stack: "总量",
+            name: '邮件营销',
+            type: 'line',
+            stack: '总量',
             data: null,
             itemStyle: {
               normal: {
-                color: "#2EC7C9"
+                color: '#2EC7C9'
               }
             }
           },
           {
-            name: "联盟广告",
-            type: "line",
-            stack: "总量",
+            name: '联盟广告',
+            type: 'line',
+            stack: '总量',
             data: null,
             itemStyle: {
               normal: {
-                color: "#B6A2DE"
+                color: '#B6A2DE'
               }
             }
           },
           {
-            name: "视频广告",
-            type: "line",
-            stack: "总量",
+            name: '视频广告',
+            type: 'line',
+            stack: '总量',
             data: null,
             itemStyle: {
               normal: {
-                color: "#5AB1EF"
+                color: '#5AB1EF'
               }
             }
           },
           {
-            name: "直接访问",
-            type: "line",
-            stack: "总量",
+            name: '直接访问',
+            type: 'line',
+            stack: '总量',
             data: null,
             itemStyle: {
               normal: {
-                color: "#FFB980"
+                color: '#FFB980'
               }
             }
           },
           {
-            name: "搜索引擎",
-            type: "line",
-            stack: "总量",
+            name: '搜索引擎',
+            type: 'line',
+            stack: '总量',
             data: null,
             itemStyle: {
               normal: {
-                color: "#D87A80"
+                color: '#D87A80'
               }
             }
           }
@@ -164,22 +164,22 @@ export default {
       optionsB: {
         title: {
           show: false,
-          text: "未来一周气温变化",
-          subtext: "纯属虚构"
+          text: '未来一周气温变化',
+          subtext: '纯属虚构'
         },
         tooltip: {
-          trigger: "axis"
+          trigger: 'axis'
         },
         legend: {
           left: 0,
-          data: ["最高气温", "最低气温"]
+          data: ['最高气温', '最低气温']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
+            magicType: { show: true, type: ['line', 'bar'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
@@ -187,53 +187,53 @@ export default {
         calculable: true,
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
           }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
-              formatter: "{value} °C"
+              formatter: '{value} °C'
             }
           }
         ],
         series: [
           {
-            name: "最高气温",
-            type: "line",
+            name: '最高气温',
+            type: 'line',
             data: null,
             itemStyle: {
               normal: {
-                color: "#2EC7C9"
+                color: '#2EC7C9'
               }
             },
             markPoint: {
               data: [
-                { type: "max", name: "最大值" },
-                { type: "min", name: "最小值" }
+                { type: 'max', name: '最大值' },
+                { type: 'min', name: '最小值' }
               ]
             },
             markLine: {
-              data: [{ type: "average", name: "平均值" }]
+              data: [{ type: 'average', name: '平均值' }]
             }
           },
           {
-            name: "最低气温",
-            type: "line",
+            name: '最低气温',
+            type: 'line',
             data: null,
             itemStyle: {
               normal: {
-                color: "#B6A2DE"
+                color: '#B6A2DE'
               }
             },
             markPoint: {
-              data: [{ name: "周最低", value: -2, xAxis: 1, yAxis: -1.5 }]
+              data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
             },
             markLine: {
-              data: [{ type: "average", name: "平均值" }]
+              data: [{ type: 'average', name: '平均值' }]
             }
           }
         ]
@@ -241,21 +241,21 @@ export default {
       optionsC: {
         title: {
           show: false,
-          text: "某楼盘销售情况",
-          subtext: "纯属虚构"
+          text: '某楼盘销售情况',
+          subtext: '纯属虚构'
         },
         tooltip: {
-          trigger: "axis"
+          trigger: 'axis'
         },
         legend: {
-          data: ["意向", "预购", "成交"]
+          data: ['意向', '预购', '成交']
         },
         toolbox: {
           show: true,
           feature: {
             mark: { show: true },
             dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar", "stack", "tiled"] },
+            magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
             restore: { show: true },
             saveAsImage: { show: true }
           }
@@ -263,57 +263,57 @@ export default {
         calculable: true,
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
-            data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
           }
         ],
         yAxis: [
           {
-            type: "value"
+            type: 'value'
           }
         ],
         series: [
           {
-            name: "成交",
-            type: "line",
+            name: '成交',
+            type: 'line',
             smooth: true,
             itemStyle: {
               normal: {
-                color: "#5AB1EF",
-                areaStyle: { type: "default" }
+                color: '#5AB1EF',
+                areaStyle: { type: 'default' }
               }
             },
             data: null
           },
           {
-            name: "预购",
-            type: "line",
+            name: '预购',
+            type: 'line',
             smooth: true,
             itemStyle: {
               normal: {
-                color: "#BAA8DF",
-                areaStyle: { type: "default" }
+                color: '#BAA8DF',
+                areaStyle: { type: 'default' }
               }
             },
             data: null
           },
           {
-            name: "意向",
-            type: "line",
+            name: '意向',
+            type: 'line',
             smooth: true,
             itemStyle: {
               normal: {
-                color: "#2EC7C9",
-                areaStyle: { type: "default" }
+                color: '#2EC7C9',
+                areaStyle: { type: 'default' }
               }
             },
             data: null
           }
         ]
       }
-    };
+    }
   }
-};
+}
 </script>
 <style lang="less" scoped></style>

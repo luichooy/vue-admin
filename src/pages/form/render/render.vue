@@ -149,42 +149,42 @@
   </div>
 </template>
 <script>
-import tableRadio from "@/components/TableRadio/index";
-import selfAdd from "@/components/SelfAdd/index";
+import tableRadio from '@/components/TableRadio/index'
+import selfAdd from '@/components/SelfAdd/index'
 
 export default {
   created() {
     this.axios
-      .get("getFormData")
+      .get('getFormData')
       .then(data => {
         if (data.errno === 0) {
-          this.formData = data.data;
-          console.log(this.formData);
+          this.formData = data.data
+          console.log(this.formData)
         } else {
-          console.log(data.msg);
+          console.log(data.msg)
         }
       })
       .catch(error => {
-        console.log(error);
-      });
+        console.log(error)
+      })
   },
   data() {
     return {
       formData: {},
       form: {}
-    };
+    }
   },
   methods: {
     onSubmit() {},
     show(value) {
-      console.log(1);
-      console.log(value);
+      console.log(1)
+      console.log(value)
     }
   },
   watch: {
     formData: {
       handler: function(newVal) {
-        console.log(newVal);
+        console.log(newVal)
       },
       deep: true
     }
@@ -193,7 +193,7 @@ export default {
     tableRadio,
     selfAdd
   }
-};
+}
 </script>
 <style lang="less" scoped>
 .render {

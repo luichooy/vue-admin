@@ -16,8 +16,8 @@
 <script>
 export default {
   model: {
-    prop: "checked",
-    event: "change"
+    prop: 'checked',
+    event: 'change'
   },
   props: {
     checked: {
@@ -25,36 +25,36 @@ export default {
     },
     label: {
       type: String,
-      default: ""
+      default: ''
     },
     value: {
       type: String
     },
     name: {
       type: String,
-      default: "name"
+      default: 'name'
     }
   },
   data() {
     return {
-      value1: "",
-      value2: ""
-    };
+      value1: '',
+      value2: ''
+    }
   },
   methods: {
     update() {
-      console.log("组件内部：" + event.target.value);
-      this.$emit("change", event.target.value);
+      console.log('组件内部：' + event.target.value)
+      this.$emit('change', event.target.value)
     },
     handleInput() {
-      this.$emit("input", Number(this.value1 + this.value2));
+      this.$emit('input', Number(this.value1 + this.value2))
     }
   },
   watch: {
     value: function(val) {
-      console.log("组件内部：" + val);
+      console.log('组件内部：' + val)
     }
   }
-};
+}
 </script>
 <style lang="less" scoped></style>

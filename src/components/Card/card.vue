@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "MtCard",
+  name: 'MtCard',
   props: {
     foldIcon: {
       type: Boolean,
@@ -19,14 +19,14 @@ export default {
   data() {
     return {
       isOpen: this.collapse
-    };
+    }
   },
   methods: {
     _setOpen(open) {
-      this.isOpen = open;
+      this.isOpen = open
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
 .mt-card {

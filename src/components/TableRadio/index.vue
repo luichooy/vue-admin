@@ -45,47 +45,47 @@ export default {
     // 水平对齐方式
     align: {
       type: String,
-      default: "center"
+      default: 'center'
     }
   },
   computed: {
     tableClsArr() {
-      let result = [];
+      let result = []
 
       // 是否加边框
 
       if (this.border) {
-        result.push("table-border");
+        result.push('table-border')
       }
 
       // 水平对其方式
       switch (this.align) {
-        case "left":
-          result.push("is-left");
-          break;
-        case "center":
-          result.push("is-center");
-          break;
-        case "right":
-          result.push("is-right");
-          break;
+        case 'left':
+          result.push('is-left')
+          break
+        case 'center':
+          result.push('is-center')
+          break
+        case 'right':
+          result.push('is-right')
+          break
         default:
-          return new Error("align的值必须为left/center/right");
+          return new Error('align的值必须为left/center/right')
       }
 
-      return result;
+      return result
     }
   },
   watch: {
     tableRadioData: {
       handler: function(newValue) {
-        this.$emit("update:data", newValue);
+        this.$emit('update:data', newValue)
       },
       deep: true
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
-@import "../../common/styles/table";
+@import '../../common/styles/table';
 </style>

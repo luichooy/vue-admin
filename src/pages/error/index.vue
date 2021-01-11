@@ -5,7 +5,7 @@
     </div>
     <div class="error-main">
       <div class="err-reason">
-        {{ (errorMap[errorCode] && errorMap[errorCode].message) || "请求失败" }}
+        {{ (errorMap[errorCode] && errorMap[errorCode].message) || '请求失败' }}
       </div>
       <div class="tips">
         不要着急，你可以返回
@@ -23,30 +23,30 @@ export default {
       errorCode: this.$route.params.code,
       errorMap: {
         403: {
-          message: "抱歉，你无权访问该页面"
+          message: '抱歉，你无权访问该页面'
         },
         404: {
-          message: "抱歉，你访问的页面不存在"
+          message: '抱歉，你访问的页面不存在'
         },
         500: {
-          message: "抱歉，服务器出错了"
+          message: '抱歉，服务器出错了'
         },
         503: {
-          message: "503"
+          message: '503'
         }
       }
-    };
+    }
   },
   methods: {
     toHome() {
-      this.$router.push({ path: "/home" });
+      this.$router.push({ path: '/home' })
     },
     back() {
-      this.$router.go(-1);
+      this.$router.go(-1)
     }
   },
   components: {}
-};
+}
 </script>
 <style lang="less" scoped>
 .error {
@@ -91,7 +91,7 @@ export default {
       font-weight: 600;
     }
     .err-reason::before {
-      content: "";
+      content: '';
       width: 360px;
       height: 4px;
       position: absolute;
@@ -102,7 +102,7 @@ export default {
       transform: rotateX(180deg);
     }
     .err-reason::after {
-      content: "";
+      content: '';
       width: 360px;
       height: 4px;
       position: absolute;

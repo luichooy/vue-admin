@@ -178,11 +178,11 @@
   </div>
 </template>
 <script>
-import { MtCard, MtCardHeader, MtCardBody } from "@/components/Card/index";
-import { ADRESS } from "@/common/data/addressData";
+import { MtCard, MtCardHeader, MtCardBody } from '@/components/Card/index'
+import { ADRESS } from '@/common/data/addressData'
 export default {
   mounted() {
-    this.ADRESS = ADRESS;
+    this.ADRESS = ADRESS
   },
   data() {
     return {
@@ -190,33 +190,33 @@ export default {
       address: [],
       patient: {},
       dialogVisible: false
-    };
+    }
   },
   watch: {
     patient: {
       handler: function(newValue) {
-        this.$emit("change", newValue);
+        this.$emit('change', newValue)
       },
       deep: true
     }
   },
   methods: {
     search() {
-      console.log(event.currentTarget);
-      this.$confirm("系统中未找到该病人，是否添加该病人到系统中？", "提示", {
-        confirmButtonText: "添加",
-        cancelButtonText: "取消",
-        type: "warning"
+      console.log(event.currentTarget)
+      this.$confirm('系统中未找到该病人，是否添加该病人到系统中？', '提示', {
+        confirmButtonText: '添加',
+        cancelButtonText: '取消',
+        type: 'warning'
       })
         .then(() => {
-          this.dialogVisible = true;
+          this.dialogVisible = true
         })
         .catch(() => {
-          return false;
-        });
+          return false
+        })
     },
     addPatient() {
-      this.dialogVisible = false;
+      this.dialogVisible = false
     }
   },
   components: {
@@ -224,7 +224,7 @@ export default {
     MtCardHeader,
     MtCardBody
   }
-};
+}
 </script>
 <style lang="less">
 @media screen and (min-width: 1650px) {
