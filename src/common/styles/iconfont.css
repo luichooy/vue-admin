@@ -1,0 +1,11 @@
+[class^="el-icon-adm"], [class*=" el-icon-adm"] {
+  font-family: "iconfont" !important;
+  
+  /* 以下内容参照第三方图标库本身的规则 */
+  font-size: inherit;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import "//at.alicdn.com/t/font_454665_sd41z6zpsqorms4i.css";

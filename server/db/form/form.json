@@ -1,0 +1,211 @@
+
+{
+  "template_name": "插管",
+  "creator_id": "创建者id",
+  "division": "大类",
+  "section": "小类",
+  "description": "描述",
+  "abbr": "简称",
+  "project_id": "如果有项目的话就有项目id",
+  "fields": [
+    {
+      "id": "report_time",
+      "title": "上报时间",
+      "type": "time",
+      "rule": [
+        true,
+        "100",
+        "0",
+        10
+      ]
+    },
+    {
+      "id": "gender",
+      "title": "性别",
+      "type": "select",
+      "values": {
+        "0": "男",
+        "1": "女",
+        "2": "不明"
+      },
+      "code": "统计学code"
+    },
+    {
+      "id": "nationality",
+      "title": "民族",
+      "type": "text",
+      "values": {
+        "0": "汉族",
+        "1": "回族"
+      }
+    },
+    {
+      "id": "annunal_income",
+      "title": "年收入",
+      "type": "number",
+      "unit": "元"
+    },
+    {
+      "id": "amount_of_people",
+      "title": "除您自己外,您家中的人数",
+      "type": "empty",
+      "sub_fields": [
+        {
+          "id": "amount_of_adult",
+          "type": "number",
+          "title": "18岁及以上的成年人"
+        },
+        {
+          "id": "amount_of_teenage",
+          "type": "number",
+          "title": "18岁及以下的未成年人"
+        }
+      ]
+    },
+    {
+      "id": "b3",
+      "title": "一周中,您和家人共同进餐(1人或1人以上)的次数如何",
+      "code": "B3",
+      "type": "tableRadio",
+      "values": {
+        "0": "0-1 天/周",
+        "1": "2-3 天/周",
+        "2": "4-5 天/周",
+        "3": "6-7 天/周"
+      },
+      "sub_fields": [
+        {
+          "id": "breakfast",
+          "type": "radio",
+          "title": "早餐",
+          "values": {
+            "0": "0-1 天/周",
+            "1": "2-3 天/周",
+            "2": "4-5 天/周",
+            "3": "6-7 天/周"
+          },
+          "value": null
+        },
+        {
+          "id": "lunch",
+          "type": "radio",
+          "title": "午餐",
+          "values": {
+            "0": "0-1 天/周",
+            "1": "2-3 天/周",
+            "2": "4-5 天/周",
+            "3": "6-7 天/周"
+          },
+          "value": null
+        },
+        {
+          "id": "supper",
+          "type": "radio",
+          "title": "晚餐",
+          "values": {
+            "0": "0-1 天/周",
+            "1": "2-3 天/周",
+            "2": "4-5 天/周",
+            "3": "6-7 天/周"
+          },
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "sugar_condition",
+      "type": "radio",
+      "title": "您习惯在食物和水中放糖吗",
+      "values": {
+        "0": "是",
+        "1": "否"
+      },
+      "sub_fields": [
+        {
+          "id": "monthly_sugar",
+          "type": "number",
+          "title": "每月消耗白糖",
+          "unit": "斤",
+          "dependencies": {
+            "sugar_condition": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "stomach_condition",
+      "type": "grade",
+      "title": "胃功能(0 没有/很少;1 偶尔(1-2 次/周);4 经常(1-2 次/天);8 频繁(2 次以上/天))",
+      "values": {
+        "0": "0",
+        "1": "1",
+        "4": "4",
+        "8": "8"
+      },
+      "sub_fields": [
+        {
+          "id": "food_to_mouth",
+          "type": "number",
+          "title": "进餐后食物反流"
+        },
+        {
+          "id": "stomachache",
+          "type": "number",
+          "title": "胃痛"
+        }
+      ]
+    },
+    {
+      "id": "use_of_thread_condition",
+      "title": "导丝的使用情况",
+      "type": "table",
+      "value": [],
+      "sub_fields": [
+        {
+          "id": "code_number",
+          "type": "text",
+          "title": "编号",
+          "value": null
+        },
+        {
+          "id": "name",
+          "type": "text",
+          "title": "名称",
+          "value": null
+        },
+        {
+          "id": "diameter",
+          "type": "number",
+          "title": "直径",
+          "unit": "inch",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "fileld1111",
+      "title": "心脏杂音强度Levine分级",
+      "type": "evaluation",
+      "sub_fields": [
+        {
+          "id": "field123",
+          "type": "evaluation",
+          "title": "级别",
+          "values": {
+            "0": "1级",
+            "1": "2级"
+          }
+        },
+        {
+          "id": "field123",
+          "type": "evaluation",
+          "title": "响度",
+          "values": {
+            "0": "最轻",
+            "1": "中度"
+          }
+        }
+      ]
+    }
+  ]
+}

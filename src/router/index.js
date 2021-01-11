@@ -1,30 +1,46 @@
+import { Loading } from "element-ui";
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import { setTitle } from "../common/utils";
+import { routers } from "./route";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
-
-const router = new VueRouter({
+const routerConfig = {
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  linkActiveClass: "active",
+  routes: routers
+};
+
+const router = new VueRouter(routerConfig);
+
+let loading;
+router.beforeEach((to, _form, next) => {
+  loading = Loading.service({
+    // fullscreen: true,
+    target: ".content-wrapper",
+    text: "跳转中..."
+  });
+
+  // 设置window.document.title 的名称
+  setTitle(to.meta.title);
+
+  if (!to.matched.length) {
+    next({
+      path: "/error/404",
+      replace: true
+    });
+  } else {
+    next();
+  }
+});
+
+router.afterEach(() => {
+  // 解决某些情况下loading无法关闭的情况
+  setTimeout(() => {
+    loading.close();
+  }, 0);
 });
 
 export default router;

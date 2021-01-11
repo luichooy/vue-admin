@@ -1,24 +1,135 @@
-# vue-admin
+最近抽空做了一套新的vue后台管理系统模板，基于***vue-cli3***和***antd-design-vue***,数据mock使用***json-server***
 
-## Project setup
-```
+新版目前所有的基础结构和功能已经开发完毕，剩下的就是视情况（忙闲，毕竟还要搬砖😊）添加一些展示页面，完全不影响大家使用
+
+大家感兴趣得话，可以去瞧瞧，如果觉得还行得话，给个⭐,谢谢各位喽😊
+
+
+> [新版传送门](https://github.com/luichooy/vue-antd-pro)
+
+---
+
+以下是本项目介绍
+
+## 技术栈：
+
+​vue@2.5.2+vue-router@3.0.1+vuex@3.0.0+axios@0.17.0+element-ui@2.0.0+vue-echarts@2.5.1
+
+# Build Setup:
+
+
+```plain
+# 将项目克隆到本地
+git clone https://github.com/luichooy/vue-admin.git
+
+# 进入到项目目录
+cd vue-admin
+
+# 安装依赖
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# 在开发环境运行项目，并且在浏览器打开 http://localhost:7999
+npm run dev
 
-### Compiles and minifies for production
-```
+# 项目打包
 npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run all tests
+npm test
+
 ```
 
-### Lints and fixes files
+# 目录结构：
+
+
 ```
-npm run lint
+├── public
+｜   ├── favicon.ico
+｜   ├── index.html
+├── src
+│   ├── common
+│   │   └── styles
+│   │   │   ├── base.scss
+│   │   │   ├── common.scss
+│   │   │   ├── iconfont.css
+│   │   │   ├── mixin.scss
+│   │   │   ├── table.scss
+│   │   │   ├── variable.scss
+│   │   ├── images
+│   │   ├── util
+｜   ｜   ｜   ├── addressData.js
+│   │   │   ├── localStorage.js
+│   │   │   ├── util.js
+│   ├── components
+│   │   ├── card
+│   │   ├── filterbar
+│   │   └── score
+│   │   ├── selfAdd
+│   │   ├── tableRadio
+│   │   ├── validateCode
+│   │   ├── Vmodel
+│   ├── pages
+│   │   ├── charts
+│   │   ├── error
+│   │   ├── form
+│   │   └── login
+│   │   ├── main
+│   │   ├── setting
+│   │   ├── tables
+│   │   ├── test
+│   ├── router
+│   │   ├── index.js
+│   │   ├── route.js
+│   ├── store
+│   │   ├── getters.js
+│   │   ├── index.js
+│   │   ├── mutations.js
+│   │   ├── state.js
+│   ├── main.js
+│   ├── App.vue
+├── babelrc
+├── eslintignore
+├── eslintrc.js
+├── .gitignore
+├── postcssrc.js
+├── index.html
+├── package.json
+└── readme.md
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# 功能实现：
+
+
+* [x] 登陆，登出
+* [x] 验证码插件的实现
+* [x] 通过vuex管理用户信息和token
+* [x] 左侧菜单栏，上方顶部栏
+* [x] 利用express完成api开发，实现数据mock
+* [x] 利用axios设置请求，响应拦截器，对http请求进行统一管理
+* [x] 设置vue-router的导航守卫，实现页面访问权限控制及页面跳转loading的同意管理
+* [x] 引入vue-echarts,实现多种柱状图/折线图/饼图
+* [x] 表格-基本表格示例，该部分会继续扩充
+* [x] 自由表单渲染及自定义表单元素的实现
+* [x] 测试部分有自己实现的各种组件，该部分会继续补充
+
+# 效果预览：
+
+---
+
+
+![login.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651362860-40c6bf1f-45c7-429d-8dea-f90bbdb45b22.gif "")
+
+![basic.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651400348-538008f4-4d55-45d9-933a-a72449a1bbaf.gif "")
+
+
+![charts.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651417218-cef6f977-a7a8-44e9-9902-2e1b29c142fb.gif "")
+
+![form.gif | center | 832x585](https://cdn.yuque.com/yuque/2018/gif/95048/1522651426493-b10d5605-70ff-47dd-b35b-f5959380498b.gif "")
+
+![test.gif | center | 1316x926](https://cdn.yuque.com/yuque/2018/gif/95048/1522651433603-32edb860-2099-4783-a1ca-f28ceb560000.gif "")
